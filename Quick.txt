@@ -1,0 +1,24 @@
+	//快速排序
+	public static void Quick(int[] arr, int left, int right){
+		if(left < right){
+			int povitpos = Partition(arr, left, right);
+			Quick(arr, left,pivotpos - 1);
+			Quick(arr, pivotpos + 1,right);
+		}
+	}
+	public static int Partition(int[] arr, int left, int right){
+		int povit = arr[left];
+		while(left < right){
+			while(left < right && arr[right] >= pivot){
+				--right;
+			}
+			arr[left] = arr[right];
+			while(left < right && arr[left] <= pivot){
+				++left;
+			}
+			arr[right] = arr[left];
+		}
+		arr[left] = pivot;
+		return left;
+	}
+	//测试代码而已，宝贝们请无视！
